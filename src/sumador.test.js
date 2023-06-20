@@ -1,7 +1,19 @@
-import sumar from "./sumador.js";
+import contadorP from "./contador";
 
-describe("Sumar", () => {
-  it("deberia sumar dos numeros", () => {
-    expect(sumar(3, 2)).toEqual(5);
+describe("Contar", () => {
+  it("Deberia devolver Hola: 1", () => {
+    expect(contadorP("Hola")).toEqual({"Hola": 1});
+  });
+   it("Deberia devolver la cadena correcta", () => {
+    expect(contadorP("Hola Hola como estás")).toEqual({"Hola": 2,"como": 1,"estás": 1});
+  });
+  it("Deberia devolver la cadena correcta", () => {
+    expect(contadorP("Hola Hola como como estás")).toEqual({"Hola": 2,"como": 2,"estás": 1});
+  });
+  it("Deberia devolver la cadena correcta", () => {
+    expect(contadorP("Hola Hola como estás estás")).toEqual({"Hola": 2,"como": 1,"estás": 2});
+  });
+  it("Deberia devolver-la cadena correcta", () => {
+    expect(contadorP("Hola Hola como estás estás")).toEqual({"Hola": 2,"como": 1,"estás": 2});
   });
 });
